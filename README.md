@@ -8,5 +8,4 @@ Python3 должен быть уже установлен. Затем испол
 
 ``` pip install -r requirements.txt ```
 
-Для работы с API вам нужно получить TOKEN. Это можно сделать по ссылке
-``` https://api.nasa.gov/#apod ```
+Для работы с API вам нужно получить TOKEN. Это можно сделать по <a href ="https://api.nasa.gov/#apod"> ссылке </a>
