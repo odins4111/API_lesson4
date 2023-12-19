@@ -1,14 +1,14 @@
 <h1>Космический Телеграм</h1>
 
 Ниже представлен набор скриптов, которые позволяют получать фотографии космоса, используя API NASA, и выкладывать их в Telegram
-```
-fetch_spacex_last_launch.py - Получение фото с API SpaceX 
+
+<b>fetch_spacex_last_launch.py</b> - Получение фото с API SpaceX 
 nasa_apod_get_photo.py - Получение фото Nasa APOD
 nasa_epic_get_photo.py - Получение фото Nasa EPIC
 nasa_telegram_bot.py - Бот для публикаци фото
 split_file_name.py - вспомогательная функция для обрезки файлов
 get_image.py - вспомогательная функции скачивания изображения
-```
+
 <h2>Подготовка к работе</h2>
 
 1. Python3 должен быть уже установлен. Затем используйте pip (или pip3, есть конфликт с Python2) для установки зависимостей:
