@@ -5,7 +5,7 @@
 <h2>Подготовка к работе</h2>
 
 1. Python3 должен быть уже установлен. Затем используйте pip (или pip3, есть конфликт с Python2) для установки зависимостей:
-2.  ``` pip install -r requirements.txt ```
+ ``` pip install -r requirements.txt ```
 
-3. Для работы с API вам нужно получить TOKEN. Это можно сделать <a href ="https://api.nasa.gov/#apod">по ссылке </a>
+2. Для работы с API вам нужно получить TOKEN. Это можно сделать <a href ="https://api.nasa.gov/#apod">по ссылке </a>
 
