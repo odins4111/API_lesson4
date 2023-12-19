@@ -45,7 +45,7 @@ python fetch_spacex_last_launch.py -id 5eb87d42ffd86e000604b384
 
 <h3>nasa_epic_get_photo</h3>
 
-Для получение фото необходимо через агументы команднной строки (-ID) передать ID запуска. <br>
+Для получение фото необходимо через агументы команднной строки (-folder) передать папку сохранения фото. <br>
 Пример: 
 ```
 python nasa_epic_get_photo.py -folder images  
@@ -55,7 +55,7 @@ python nasa_epic_get_photo.py -folder images
 
 <h3>nasa_apod_get_photo</h3>
 
-Для получение фото необходимо через агументы команднной строки (-ID) передать ID запуска. <br>
+Для получение фото необходимо через агументы команднной строки (-folder) передать папку сохранения фото <br>
 Пример: 
 ```
 python nasa_apod_get_photo.py -folder images   
@@ -65,7 +65,7 @@ python nasa_apod_get_photo.py -folder images
 
 <h3>nasa_telegram_bot</h3>
 
-Для запуска Бота необходимо через агументы команднной строки (-ID) передать ID запуска. <br>
+Для запуска Бота необходимо через агументы команднной строки (-folder) передать папку сохранения фото <br>
 Пример: 
 ```
 python nasa_telegram_bot.py -folder images    
@@ -75,5 +75,9 @@ python nasa_telegram_bot.py -folder images
 
 !!! Незабудьте указать переменные окружения в файле .env
 
+
+<h1>Цель проекта</h1>
+
+Код написан в образовательных целях на онлайн-курсе для веб-разработчиков dvmn.org.
 
 
