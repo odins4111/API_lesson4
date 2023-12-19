@@ -6,7 +6,14 @@
 
 1. Python3 должен быть уже установлен. Затем используйте pip (или pip3, есть конфликт с Python2) для установки зависимостей:
    
- ``` pip install -r requirements.txt ```
+   ``` pip install -r requirements.txt ```
 
-3. Для работы с API вам нужно получить TOKEN. Это можно сделать <a href ="https://api.nasa.gov/#apod">по ссылке </a>
+2. Для работы с API вам нужно получить API_key. Это можно сделать <a href ="https://api.nasa.gov/#apod">по ссылке </a>
+3. Создать внутри репозитория файл .env и указать следудующие параметры:
+   ```
+   api_key=**** - Уникальный токен NASA
+   token=*** - Токен Telegram канала
+   chat_id=*** - ID чата отправки фото
+   frequency_sending_photos = 240 - частота отправки фото в минутах
+   ```
 
