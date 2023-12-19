@@ -24,11 +24,13 @@
    frequency_sending_photos = 240 - частота отправки фото в минутах
    ```
    Описание:
-    ```
-   api_key - Уникальный токен NASA
-   token - Токен Telegram канала
-   chat_id - ID чата отправки фото
-   frequency_sending_photos - Частота отправки фото в минутах
-   ```
+    
+   <b>api_key</b> - Уникальный токен NASA <br>
+   <b>token</b> - Токен Telegram канала <br>
+   <b>chat_id</b> - ID чата отправки фото<br>
+   <b>frequency_sending_photos</b> - Частота отправки фото в минутах <br>
+
+   <p style="color: red; font-weight: bold;">*Для всех скриптов кроме бота достаточно указать только API_key </p>
+   
    
 
