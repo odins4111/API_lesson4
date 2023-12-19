@@ -16,4 +16,12 @@
    chat_id=*** - ID чата отправки фото
    frequency_sending_photos = 240 - частота отправки фото в минутах
    ```
+   Описание:
+    ```
+   api_key - Уникальный токен NASA
+   token - Токен Telegram канала
+   chat_id - ID чата отправки фото
+   frequency_sending_photos - частота отправки фото в минутах
+   ```
+   
 
