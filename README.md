@@ -21,27 +21,23 @@
    api_key=**** 
    token=*** 
    chat_id=*** 
-   frequency_sending_photos = 240 
    ```
    Описание:
     
    <b>api_key</b> - Уникальный токен NASA <br>
    <b>token</b> - Токен Telegram канала <br>
    <b>chat_id</b> - ID чата отправки фото<br>
-   <b>frequency_sending_photos</b> - Частота отправки фото в минутах <br>
 
   <b>!!!Для всех скриптов кроме бота достаточно указать только API_key</b> <br>
    
 <h2>Описание работы</h2>
 <h3>fetch_spacex_last_launch</h3>
 
-Для получение фото необходимо через агументы команднной строки (-ID) передать ID запуска. <br>
+Для получение фото необходимо через агументы команднной строки (-ID) передать ID запуска и путь к папке для сохранения фото(-folder). <br>
 Пример: 
 ```
-python fetch_spacex_last_launch.py -id 5eb87d42ffd86e000604b384
+python fetch_spacex_last_launch.py -id 5eb87d42ffd86e000604b384 -folder images
 ```
-Если запустить скрипт без аргументов, то вы получите фото с последнего запуска. <br>
-Также после запуска скрипта вам необходимо будет указать папку, куда сохранить фото.
 
 <h3>nasa_epic_get_photo</h3>
 
@@ -50,7 +46,7 @@ python fetch_spacex_last_launch.py -id 5eb87d42ffd86e000604b384
 ```
 python nasa_epic_get_photo.py -folder images  
 ```
-Если запустить скрипт без аргументов, то вам необходимо будет указать папку, куда сохранить фото.  <br>
+
 
 <h3>nasa_apod_get_photo</h3>
 
@@ -59,16 +55,14 @@ python nasa_epic_get_photo.py -folder images
 ```
 python nasa_apod_get_photo.py -folder images   
 ```
-Если запустить скрипт без аргументов, то вам необходимо будет указать папку, куда сохранить фото. <br>
 
 <h3>nasa_telegram_bot</h3>
 
-Для запуска Бота необходимо через агументы команднной строки (-folder) передать папку сохранения фото <br>
+Для запуска Бота необходимо через агументы команднной строки (-folder) передать папку сохранения фото и указать частоту отправки сообщений в минутах(-frequency) <br>
 Пример: 
 ```
-python nasa_telegram_bot.py -folder images    
+python nasa_telegram_bot.py -folder images -frequency 1    
 ```
-Если запустить скрипт без аргументов, то вам необходимо будет указать папку, куда сохранить фото. <br>
 
 <b>!!! Незабудьте указать переменные окружения в файле .env</b>
 
