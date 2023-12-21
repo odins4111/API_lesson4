@@ -20,13 +20,13 @@ def send_photos_telegram(folder, telegram_token, tg_chat_id, frequency_sending_p
     bot = telegram.Bot(token=telegram_token)
     photo_roster = get_photo_roster(folder)
     max_file_size_mb = 20
-    Min_in_hour = 60
+    min_in_hour = 60
     while True:
         random.shuffle(photo_roster)
         for photo in photo_roster:
             file_size = get_file_size(photo)
             if file_size <= max_file_size_mb:
-                time.sleep(int(frequency_sending_photos) * Min_in_hour)
+                time.sleep(int(frequency_sending_photos) * min_in_hour)
                 with open(photo, "rb") as photo_for_send:
                     bot.send_document(chat_id=tg_chat_id, document=photo_for_send)
 
