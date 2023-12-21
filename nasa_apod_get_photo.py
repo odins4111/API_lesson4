@@ -6,30 +6,32 @@ import argparse
 import sys
 
 
-def nasa_apod(folder):
-    api_key = os.environ["api_key"]
+def get_nasa_apod_photos(folder):
+    api_key = os.environ["API_NASA_KEY"]
     url = "https://api.nasa.gov/planetary/apod"
-    payload = {"api_key": api_key, "count": "5"}
+    count_photos = 10
+    payload = {"api_key": api_key, "count": count_photos}
     response = requests.get(url, params=payload)
     response.raise_for_status()
-    all_photo = response.json()
-    for photo_number, photo in enumerate(all_photo):
-        get_image(photo["url"], folder, photo_number + 1)
+    roster_links_photo = response.json()
+    for photo_number, photo in enumerate(roster_links_photo, start=1):
+        download_image(photo["url"], folder, photo_number)
 
 
 def main():
+    load_dotenv()
     parser = argparse.ArgumentParser(
-        description="Script for educational purposes on online-course for web-developers dvmn.org"
+        description="Скрипт позволяет получать через API NASA фотографии космоса. NASA Astronomy Picture of the Day."
     )
-    parser.add_argument("-folder", help="Folder with images")
+    parser.add_argument(
+        "-folder",
+        help="Через данный агрумент указывается папка для сохранения фото",
+        default="images",
+    )
     args = parser.parse_args()
-    if len(sys.argv) > 1:
-        nasa_apod(sys.argv[2])
-    else:
-        folder = input("Input folder photo - ")
-        nasa_apod(folder)
+    if args.folder:
+        get_nasa_apod_photos(args.folder)
 
 
 if __name__ == "__main__":
-    load_dotenv()
     main()

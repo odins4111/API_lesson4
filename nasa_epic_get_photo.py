@@ -8,44 +8,41 @@ import argparse
 import sys
 
 
-def nasa_epic(folder):
-    api_key = os.environ["api_key"]
+def get_nasa_epic_photos(folder, api_nasa_key):
     url = "https://api.nasa.gov/EPIC/api/natural/images?"
-    payload = {"api_key": api_key}
+    payload = {"api_key": api_nasa_key}
     response = requests.get(url, params=payload)
     response.raise_for_status()
-    result = response.json()
-    for photo_number, image_info in enumerate(result):
+    roster_links_photo = response.json()
+    for photo_number, image_info in enumerate(roster_links_photo, start=1):
         image = image_info["image"]
         date = image_info["date"]
         date = datetime.datetime.strptime(date, "%Y-%m-%d %H:%M:%S")
         year = date.year
         month = date.month
         day = date.day
-        url_epic = (
-            "https://api.nasa.gov/EPIC/archive/natural/{0}/{1}/{2}/png/{3}.png?".format(
-                year, month, day, image
-            )
+        url_epic = "https://api.nasa.gov/EPIC/archive/natural/{0}/{1}/{2}/png/{3}.png?api_key={4}".format(
+            year, month, day, image, api_nasa_key
         )
-        payload_epic = {"api_key": api_key}
-        response_epic = requests.get(url_epic, params=payload_epic)
         response.raise_for_status()
-        get_image(response_epic.url, folder, photo_number + 1)
+        download_image(url_epic, folder, photo_number)
 
 
 def main():
+    load_dotenv()
+    API_NASA_KEY = os.environ["API_NASA_KEY"]
     parser = argparse.ArgumentParser(
-        description="Script for educational purposes on online-course for web-developers dvmn.org"
+        description="Скрипт позволяет получать через API NASA фотографии космоса. NASA Earth Polychromatic Imaging Camera"
     )
-    parser.add_argument("-folder", help="Folder with images")
+    parser.add_argument(
+        "-folder",
+        help="Через данный агрумент указывается папка для сохранения фото",
+        default="images",
+    )
     args = parser.parse_args()
-    if len(sys.argv) > 1:
-        nasa_epic(sys.argv[2])
-    else:
-        folder = input("Input folder photo - ")
-        nasa_epic(folder)
+    if args.folder:
+        get_nasa_epic_photos(args.folder, API_NASA_KEY)
 
 
 if __name__ == "__main__":
-    load_dotenv()
     main()

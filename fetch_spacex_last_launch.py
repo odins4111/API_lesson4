@@ -5,31 +5,37 @@ import argparse
 from get_image import *
 
 
-def fetch_spacex_last_launch(launch_id):
+def fetch_spacex_last_launch(launch_id, folder):
     if str.lower(launch_id) == "latest":
         url = "https://api.spacexdata.com/v5/launches/latest"
     else:
         url = "https://api.spacexdata.com/v5/launches/{0}".format(launch_id)
-    folder = input("Input folder - ")
     response = requests.get(url)
     response.raise_for_status()
-    all_photo = response.json()["links"]["flickr"]["original"]
-    for photo_number, photo in enumerate(all_photo):
-        get_image(photo, folder, photo_number)
+    roster_links_photo = response.json()["links"]["flickr"]["original"]
+    for photo_number, photo in enumerate(roster_links_photo, start=1):
+        download_image(photo, folder, photo_number)
 
 
 def main():
     load_dotenv()
-    parser = argparse.ArgumentParser(description="API")
-    parser.add_argument("-id", help="id launch")
+    parser = argparse.ArgumentParser(
+        description="Скрипт позволяет получать по API SpaceX фотографии с запуском ракет. При запуске скрипта без аргументов, будут скачаны фотографии с последним запуском"
+    )
+    parser.add_argument(
+        "-id",
+        help="Позволяет получить фотографии конкретного запуска",
+        default="latest",
+    )
+    parser.add_argument(
+        "-folder",
+        help="Через данный агрумент указывается папка для сохранения фото",
+        default="images",
+    )
     args = parser.parse_args()
-    print(sys.argv)
-    if len(sys.argv) > 1:
-        fetch_spacex_last_launch(sys.argv[2])
-    else:
-        fetch_spacex_last_launch("latest")
+    if args.id and args.folder:
+        fetch_spacex_last_launch(args.id, args.folder)
 
 
 if __name__ == "__main__":
-    load_dotenv()
     main()
