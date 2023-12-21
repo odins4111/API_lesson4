@@ -18,15 +18,15 @@
 2. Для работы с API вам нужно получить API_key. Это можно сделать <a href ="https://api.nasa.gov/#apod">по ссылке </a>
 3. Создать внутри репозитория файл .env и указать следудующие параметры:
    ```
-   api_key=**** 
-   token=*** 
-   chat_id=*** 
+   API_NASA_KEY=**** 
+   TELEGRAM_TOKEN=*** 
+   TG_CHAT_ID=*** 
    ```
    Описание:
     
-   <b>api_key</b> - Уникальный токен NASA <br>
-   <b>token</b> - Токен Telegram канала <br>
-   <b>chat_id</b> - ID чата отправки фото<br>
+   <b>API_NASA_KEY</b> - Уникальный токен NASA <br>
+   <b>TELEGRAM_TOKEN</b> - Токен Telegram канала <br>
+   <b>TG_CHAT_ID</b> - ID чата отправки фото<br>
 
   <b>!!!Для всех скриптов кроме бота достаточно указать только API_key</b> <br>
    
