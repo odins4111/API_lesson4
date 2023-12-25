@@ -6,8 +6,7 @@ import argparse
 import sys
 
 
-def get_nasa_apod_photos(folder):
-    api_key = os.environ["API_NASA_KEY"]
+def get_nasa_apod_photos(folder, api_key):
     url = "https://api.nasa.gov/planetary/apod"
     count_photos = 5
     photo_name = "nasa_apod"
@@ -21,6 +20,7 @@ def get_nasa_apod_photos(folder):
 
 def main():
     load_dotenv()
+    api_key = os.environ["API_NASA_KEY"]
     parser = argparse.ArgumentParser(
         description="Скрипт позволяет получать через API NASA фотографии космоса. NASA Astronomy Picture of the Day."
     )
@@ -31,7 +31,7 @@ def main():
     )
     args = parser.parse_args()
     if args.folder:
-        get_nasa_apod_photos(args.folder)
+        get_nasa_apod_photos(args.folder, api_key)
 
 
 if __name__ == "__main__":
