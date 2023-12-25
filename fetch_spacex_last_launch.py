@@ -13,8 +13,8 @@ def fetch_spacex_last_launch(launch_id, folder):
     response = requests.get(url)
     response.raise_for_status()
     photo_name = "Spacex"
-    roster_links_photo = response.json()["links"]["flickr"]["original"]
-    for photo_number, photo in enumerate(roster_links_photo, start=1):
+    roster_photo_links = response.json()["links"]["flickr"]["original"]
+    for photo_number, photo in enumerate(roster_photo_links, start=1):
         download_image(photo, folder, photo_number, photo_name)
 
 

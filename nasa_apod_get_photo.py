@@ -8,13 +8,13 @@ import sys
 
 def get_nasa_apod_photos(folder, api_key):
     url = "https://api.nasa.gov/planetary/apod"
-    count_photos = 5
+    photos_count = 5
     photo_name = "nasa_apod"
-    payload = {"api_key": api_key, "count": count_photos}
+    payload = {"api_key": api_key, "count": photos_count}
     response = requests.get(url, params=payload)
     response.raise_for_status()
-    roster_links_photo = response.json()
-    for photo_number, photo in enumerate(roster_links_photo, start=1):
+    roster_photo_links = response.json()
+    for photo_number, photo in enumerate(roster_photo_links, start=1):
         download_image(photo["url"], folder, photo_number, photo_name)
 
 
