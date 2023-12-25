@@ -14,6 +14,7 @@ def get_nasa_epic_photos(folder, api_nasa_key):
     response = requests.get(url, params=payload)
     response.raise_for_status()
     roster_links_photo = response.json()
+    photo_name = "nasa_epic"
     for photo_number, image_info in enumerate(roster_links_photo, start=1):
         image = image_info["image"]
         date = image_info["date"]
@@ -25,7 +26,7 @@ def get_nasa_epic_photos(folder, api_nasa_key):
             year, month, day, image, api_nasa_key
         )
         response.raise_for_status()
-        download_image(url_epic, folder, photo_number)
+        download_image(url_epic, folder, photo_number, photo_name)
 
 
 def main():
