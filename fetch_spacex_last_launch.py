@@ -5,11 +5,8 @@ import argparse
 from get_image import *
 
 
-def fetch_spacex_last_launch(launch_id, folder):
-    if str.lower(launch_id) == "latest":
-        url = "https://api.spacexdata.com/v5/launches/latest"
-    else:
-        url = "https://api.spacexdata.com/v5/launches/{0}".format(launch_id)
+def fetch_spacex_last_launch(launch_id="latest", folder=""):
+    url = "https://api.spacexdata.com/v5/launches/{0}".format(launch_id)
     response = requests.get(url)
     response.raise_for_status()
     photo_name = "Spacex"
