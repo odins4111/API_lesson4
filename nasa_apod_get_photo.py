@@ -15,7 +15,7 @@ def get_nasa_apod_photos(folder, api_key):
     response.raise_for_status()
     roster_photo_links = response.json()
     for photo_number, photo in enumerate(roster_photo_links, start=1):
-        download_image(photo["url"], folder, photo_number, photo_name)
+        download_image(photo["url"], folder, photo_number, photo_name, payload)
 
 
 def main():
