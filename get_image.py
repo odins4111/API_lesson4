@@ -3,10 +3,10 @@ import requests
 from split_file_name import *
 
 
-def download_image(url, folder, photo_number):
+def download_image(url, folder, photo_number, photo_name):
     os.makedirs(folder, exist_ok=True)
     file_ext = split_file_name(url)
-    filename = "nasa_{0}{1}".format(photo_number, file_ext)
+    filename = "{0}_{1}{2}".format(photo_name, photo_number, file_ext)
     response = requests.get(url)
     response.raise_for_status()
     path = os.path.join(folder, filename)
