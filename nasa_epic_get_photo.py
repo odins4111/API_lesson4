@@ -31,7 +31,7 @@ def get_nasa_epic_photos(folder, api_nasa_key):
 
 def main():
     load_dotenv()
-    API_NASA_KEY = os.environ["API_NASA_KEY"]
+    api_nasa_key = os.environ["API_NASA_KEY"]
     parser = argparse.ArgumentParser(
         description="Скрипт позволяет получать через API NASA фотографии космоса. NASA Earth Polychromatic Imaging Camera"
     )
@@ -42,7 +42,7 @@ def main():
     )
     args = parser.parse_args()
     if args.folder:
-        get_nasa_epic_photos(args.folder, API_NASA_KEY)
+        get_nasa_epic_photos(args.folder, api_nasa_key)
 
 
 if __name__ == "__main__":

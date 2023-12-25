@@ -40,8 +40,8 @@ def get_file_size(file):
 
 def main():
     load_dotenv()
-    TELEGRAM_TOKEN = os.environ["TELEGRAM_TOKEN"]
-    TG_CHAT_ID = os.environ["TG_CHAT_ID"]
+    telegram_token = os.environ["TELEGRAM_TOKEN"]
+    tg_chat_id = os.environ["TG_CHAT_ID"]
     parser = argparse.ArgumentParser(
         description="Телеграм бот, который отправляет конкретному пользователю фотографии из указанной папки"
     )
@@ -53,7 +53,7 @@ def main():
     )
     args = parser.parse_args()
     if args.folder and args.frequency:
-        send_photos_telegram(args.folder, TELEGRAM_TOKEN, TG_CHAT_ID, args.frequency)
+        send_photos_telegram(args.folder, telegram_token, tg_chat_id, args.frequency)
 
 
 if __name__ == "__main__":
