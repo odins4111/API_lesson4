@@ -15,9 +15,9 @@ def get_nasa_epic_photos(folder, api_nasa_key):
     response.raise_for_status()
     roster_photo_links = response.json()
     photo_name = "nasa_epic"
-    for photo_number, image_info in enumerate(roster_photo_links, start=1):
-        image = image_info["image"]
-        date = image_info["date"]
+    for photo_number, image_parameters in enumerate(roster_photo_links, start=1):
+        image = image_parameters["image"]
+        date = image_parameters["date"]
         date = datetime.datetime.strptime(date, "%Y-%m-%d %H:%M:%S")
         year = date.year
         month = date.month
