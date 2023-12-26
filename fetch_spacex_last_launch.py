@@ -17,7 +17,6 @@ def fetch_spacex_last_launch(launch_id="latest", folder=""):
 
 
 def main():
-    load_dotenv()
     parser = argparse.ArgumentParser(
         description="Скрипт позволяет получать по API SpaceX фотографии с запуском ракет. При запуске скрипта без аргументов, будут скачаны фотографии с последним запуском"
     )
