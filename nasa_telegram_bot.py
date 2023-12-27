@@ -43,17 +43,16 @@ def main():
     telegram_token = os.environ["TELEGRAM_TOKEN"]
     tg_chat_id = os.environ["TG_CHAT_ID"]
     parser = argparse.ArgumentParser(
-        description="Телеграм бот, который отправляет конкретному пользователю фотографии из указанной папки"
+        description = "Телеграм бот, который отправляет конкретному пользователю фотографии из указанной папки"
     )
     parser.add_argument(
-        "-folder", help="Указывается папка, где хранятся фото", default="images"
+        "-folder", help = "Указывается папка, где хранятся фото", default = "images"
     )
     parser.add_argument(
-        "-frequency", help="Частота отправки сообщений в минутах", default=1
+        "-frequency", help = "Частота отправки сообщений в минутах", default = 1
     )
     args = parser.parse_args()
-    if args.folder and args.frequency:
-        send_photos_telegram(args.folder, telegram_token, tg_chat_id, args.frequency)
+    send_photos_telegram(args.folder, telegram_token, tg_chat_id, args.frequency)
 
 
 if __name__ == "__main__":
