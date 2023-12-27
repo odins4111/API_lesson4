@@ -30,8 +30,7 @@ def main():
         default="images",
     )
     args = parser.parse_args()
-    if args.folder:
-        get_nasa_apod_photos(args.folder, api_key)
+    get_nasa_apod_photos(args.folder, api_key)
 
 
 if __name__ == "__main__":
