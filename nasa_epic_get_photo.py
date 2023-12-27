@@ -40,8 +40,7 @@ def main():
         default="images",
     )
     args = parser.parse_args()
-    if args.folder:
-        get_nasa_epic_photos(args.folder, api_nasa_key)
+    get_nasa_epic_photos(args.folder, api_nasa_key)
 
 
 if __name__ == "__main__":
