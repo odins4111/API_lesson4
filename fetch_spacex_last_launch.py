@@ -31,8 +31,7 @@ def main():
         default="images",
     )
     args = parser.parse_args()
-    if args.id and args.folder:
-        fetch_spacex_last_launch(args.id, args.folder)
+    fetch_spacex_last_launch(args.id, args.folder)
 
 
 if __name__ == "__main__":
